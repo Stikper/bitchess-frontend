@@ -1,73 +1,31 @@
+:root {
+    --main-border-radius: 1.6vw;
+}
+
 body {
     margin:0;
+    padding: 0;
     background-color: #333333;
     overflow: hidden;
 
 }
 
-#game_area {
+#blur_area {
+    margin: 0;
+    padding: var(--main-border-radius);
     box-sizing: border-box;
-    margin:0;
-    padding: 1.6vw;
     height: 100vh;
-    width: 100vw;;
+    width: 100vw;
 }
 
-#board {
-    margin: 0 1.6vw 0 0;
-    float: left;
-    height: calc(100vh - 3.2vw);
-    width: calc(100vh - 3.2vw);
-    background-color: #ffce9e;
-    border-radius: 1.6vw;
-}
-
-.clock {
-    float:left;
-    height: 5.8vw;
-    width: calc(100vw - calc(100vh - 3.2vw) - 30vw - 6.4vw);
-    background-color: #b8b8b8;
-    border-radius: 1.6vw;
-}
-
-#opponent_clock {
-    margin: 0 0 2.9vw 0;
-}
-
-#player_clock {
-    margin: 2.9vw 0 0 0;
-}
-
-#zone_counter {
-    float: left;
-    background-color: #e4e57f;
-    height: 9.8vw;
-    width: calc(100vw - calc(100vh - 3.2vw) - 30vw - 6.4vw);
-    border-radius: 1.6vw;
-}
-
-#chest_counter {
-    float: left;
-    margin: 1.6vw 0 1.6vw 0;
-    background-color: #b4ff75;
-    height: 6vw;
-    width: calc(100vw - calc(100vh - 3.2vw) - 30vw - 6.4vw);
-    border-radius: 1.6vw;
-}
-
-#deathmatch_counter{
-    float: left;
-    background-color: #fa8888;
-    height: 6vw;
-    width: calc(100vw - calc(100vh - 3.2vw) - 30vw - 6.4vw);
-    border-radius: 1.6vw;
-}
-
-#game_menu {
-    float: right;
-    margin: 0 0 0 1.6vw;
-    height: calc(100vh - 3.2vw);
-    width: 30vw;
-    background-color: #b8b8b8;
-    border-radius: 1.6vw;
+#game_area {
+    position: relative;
+    top: 50%;
+    transform:translate(0,-50%);
+    margin: 0 auto;
+    aspect-ratio: 1.94;
+    width: auto;
+    height: auto;
+    max-height: calc(100vh - var(--main-border-radius) * 2);
+    background-color: green;
 }

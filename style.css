@@ -1,5 +1,14 @@
 :root {
-    --main-border-radius: 1.6vw;
+    /*Sizes*/
+    --main_border_radius: 1.6vw;
+    --clock_margin: 1.95vw;
+    /*Colors*/
+    --black_square: #d18b47;
+    --white_square: #ffce9e;
+    --grey: #b8b8b8;
+    --red: #fa8888;
+    --yellow: #e4e57f;
+    --green: #b4ff75;
 }
 
 body {
@@ -12,13 +21,14 @@ body {
 
 #blur_area {
     margin: 0;
-    padding: var(--main-border-radius);
+    padding: 0;
     box-sizing: border-box;
     height: 100vh;
     width: 100vw;
 }
 
 #game_area {
+    box-sizing: border-box;
     position: relative;
     top: 50%;
     transform:translate(0,-50%);
@@ -26,6 +36,54 @@ body {
     aspect-ratio: 1.94;
     width: auto;
     height: auto;
-    max-height: calc(100vh - var(--main-border-radius) * 2);
+    max-height: calc(100vh);
     background-color: green;
+    padding: var(--main_border_radius);
+}
+
+#board {
+    float: left;
+    margin-right: var(--main_border_radius);
+    border-radius: var(--main_border_radius);
+    background-color: var(--black_square);
+    height: 100%;
+    aspect-ratio: 1;
+}
+
+.info_block {
+    float: left;
+    width: 15.2%;
+    border-radius: var(--main_border_radius);
+}
+
+.clock {
+    aspect-ratio: 2.55;
+    background-color: var(--grey);
+}
+
+#zone_counter {
+    margin-top: var(--clock_margin);
+    background-color: var(--yellow);
+    aspect-ratio: 1.352;
+}
+
+#chest_counter {
+    margin: var(--main_border_radius) 0;
+    background-color: var(--green);
+    aspect-ratio: 1.731;
+}
+
+#deathmatch_counter {
+    margin-bottom: var(--clock_margin);
+    background-color: var(--red);
+    aspect-ratio: 1.731;
+}
+
+#game_menu {
+    float: right;
+    margin-left: var(--main_border_radius);
+    aspect-ratio: 0.628;
+    height: 100%;
+    background-color: var(--grey);
+    border-radius: var(--main_border_radius);
 }

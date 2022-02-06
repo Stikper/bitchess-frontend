@@ -5,10 +5,11 @@
     <title>Bitchess</title>
     <link rel="icon" href="/data/logos/icon_logo.svg">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/data/fonts/Inter/inter.css">
     <script src="script.js"></script>
 </head>
 <body onload="preSetup()">
-<div id="blur_area">
+<div id="blur_area" class="blurred">
     <div id="game_area">
         <div id="board"></div>
         <div id="game_menu"></div>
@@ -20,6 +21,11 @@
     </div>
 </div>
 <div id="menu">
+    <h1>Шахматы:<br/>королевская битва</h1>
+    <label for="room_id"></label><input id="room_id" type="text" placeholder="ID комнаты">
+    <button id="start_button" onclick="unblur()">Играть</button>
+    <p id="or">или</p>
+    <button id="random_room_button">Случайная комната</button>
 </div>
 </body>
 </html>

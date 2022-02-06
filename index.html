@@ -9,21 +9,34 @@
     <script src="script.js"></script>
 </head>
 <body onload="preSetup()">
-<div id="blur_area" class="blurred">
+<div id="blur_area" class="">
     <div id="game_area">
         <div id="board"></div>
         <div id="game_menu"></div>
-        <div id="opponent_clock" class="clock info_block"></div>
-        <div id="zone_counter" class="info_block"></div>
-        <div id="chest_counter" class="info_block"></div>
-        <div id="deathmatch_counter" class="info_block"></div>
-        <div id="player_clock" class="clock info_block"></div>
+        <div id="opponent_clock" class="clock info_block">
+            <p id="opponent_time" class="time">10:00</p>
+        </div>
+        <div id="zone_counter" class="info_block">
+            <p id="change_zone_text" class="info_block_text">Изменение игровой зоны через</p>
+            <p id="moves_to_zone_change" class="moves_counter">4 хода</p>
+        </div>
+        <div id="chest_counter" class="info_block">
+            <p id="chest_text" class="info_block_text">Сундук <br> появится через</p>
+            <p id="moves_to_chest" class="moves_counter">2 хода</p>
+        </div>
+        <div id="deathmatch_counter" class="info_block">
+            <p id="deathmatch_text" class="info_block_text">Deathmatch <br> через</p>
+            <p id="moves_to_deathmatch" class="moves_counter">2 хода</p>
+        </div>
+        <div id="player_clock" class="clock info_block">
+            <p id="player_time" class="time">10:00</p>
+        </div>
     </div>
 </div>
-<div id="menu">
+<div id="menu" class="hidden">
     <h1>Шахматы:<br/>королевская битва</h1>
     <label for="room_id"></label><input id="room_id" type="text" placeholder="ID комнаты">
-    <button id="start_button" onclick="unblur()">Играть</button>
+    <button id="start_button">Играть</button>
     <p id="or">или</p>
     <button id="random_room_button">Случайная комната</button>
 </div>

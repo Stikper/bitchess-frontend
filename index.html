@@ -9,7 +9,7 @@
     <script src="script.js"></script>
 </head>
 <body onload="preSetup()">
-<div id="blur_area" class="">
+<div id="blur_area" class="blurred">
     <div id="game_area">
         <div id="board"></div>
         <div id="game_menu"></div>
@@ -33,10 +33,12 @@
         </div>
     </div>
 </div>
-<div id="menu" class="hidden">
+<div id="menu" class="">
     <h1>Шахматы:<br/>королевская битва</h1>
-    <label for="room_id"></label><input id="room_id" type="text" placeholder="ID комнаты">
-    <button id="start_button">Играть</button>
+    <form>
+        <label for="room_id"></label><input id="room_id" type="text" placeholder="ID комнаты" pattern="[0-9]{1,10}" required>
+        <input type="submit" id="start_button" value="Играть">
+    </form>
     <p id="or">или</p>
     <button id="random_room_button">Случайная комната</button>
 </div>

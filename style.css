@@ -25,6 +25,15 @@ body {
     box-sizing: border-box;
     height: 100vh;
     width: 100vw;
+    opacity: 1;
+    filter: blur(0);
+    transition: filter ease-out 0.5s, opacity ease-out 0.5s;
+}
+
+#blur_area.blurred {
+    animation: ease-out blurring 0.5s;
+    filter: blur(calc(var(--main_border_radius) / 3));
+    opacity: 0.24;
 }
 
 #game_area {
@@ -37,7 +46,6 @@ body {
     width: auto;
     height: auto;
     max-height: calc(100vh);
-    background-color: green;
     padding: var(--main_border_radius);
 }
 

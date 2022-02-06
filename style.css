@@ -45,9 +45,23 @@ body {
     float: left;
     margin-right: var(--main_border_radius);
     border-radius: var(--main_border_radius);
-    background-color: var(--black_square);
     height: 100%;
     aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.square {
+    aspect-ratio: 1;
+    height: 12.5%;
+    float: left;
+}
+
+.black_square {
+    background-color: var(--black_square);
+}
+
+.white_square {
+    background-color: var(--white_square);
 }
 
 .info_block {

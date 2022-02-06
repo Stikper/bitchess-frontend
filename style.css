@@ -64,25 +64,25 @@ body {
 #zone_counter {
     margin-top: var(--clock_margin);
     background-color: var(--yellow);
-    aspect-ratio: 1.352;
+    aspect-ratio: 1.35;
 }
 
 #chest_counter {
     margin: var(--main_border_radius) 0;
     background-color: var(--green);
-    aspect-ratio: 1.731;
+    aspect-ratio: 1.73;
 }
 
 #deathmatch_counter {
     margin-bottom: var(--clock_margin);
     background-color: var(--red);
-    aspect-ratio: 1.731;
+    aspect-ratio: 1.73;
 }
 
 #game_menu {
     float: right;
-    margin-left: var(--main_border_radius);
-    aspect-ratio: 0.628;
+    /*margin-left: var(--main_border_radius);*/
+    aspect-ratio: 0.63;
     height: 100%;
     background-color: var(--grey);
     border-radius: var(--main_border_radius);

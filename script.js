@@ -1,12 +1,14 @@
 let blur_area = null;
 let board = null;
-let menu;
+let menu = null;
+let waiting_message = null;
 
 function preSetup(){
     window.addEventListener('resize', function (){styleCheck()});
     blur_area = document.getElementById('blur_area');
     board = document.getElementById("board");
-    menu = document.getElementById("menu")
+    menu = document.getElementById("menu");
+    waiting_message = document.getElementById("waiting");
     styleCheck();
     createBoard();
 }
@@ -47,6 +49,12 @@ function playByRoomId(event) {
     xhr.timeout = 10000;
     xhr.send(null);
     xhr.onload = function() {
-        console.log(xhr.response);
+        if(xhr.response === "created") {
+            waiting_message.classList = "";
+            menu.classList = "hidden";
+        } else if(xhr.response === "started") {
+            blur_area.classList = "";
+            menu.classList = "hidden";
+        } else {console.log(xhr.response);}
     }
 }

@@ -37,3 +37,16 @@ function createBoard() {
         color_flag = !color_flag;
     }
 }
+
+function playByRoomId(event) {
+    event.preventDefault();
+    let room_id = document.getElementById("room_id").value;
+    let request = "room_id=" + room_id;
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET","/python/join?" + request, true);
+    xhr.timeout = 10000;
+    xhr.send(null);
+    xhr.onload = function() {
+        console.log(xhr.response);
+    }
+}

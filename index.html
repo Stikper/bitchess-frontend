@@ -35,8 +35,8 @@
 </div>
 <div id="menu" class="">
     <h1>Шахматы:<br/>королевская битва</h1>
-    <form>
-        <label for="room_id"></label><input id="room_id" type="text" placeholder="ID комнаты" pattern="[0-9]{1,10}" required>
+    <form name="play_by_room_id" onsubmit="playByRoomId(event)">
+        <label for="room_id"></label><input id="room_id" name="room_id" type="text" placeholder="ID комнаты" pattern="[0-9]{1,10}" required>
         <input type="submit" id="start_button" value="Играть">
     </form>
     <p id="or">или</p>

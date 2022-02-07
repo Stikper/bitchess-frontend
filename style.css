@@ -81,6 +81,7 @@ body {
     text-align: center;
     padding: 0;
     overflow: hidden;
+    user-select: none;
 }
 
 .clock {
@@ -126,7 +127,7 @@ body {
     text-align: center;
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.5s, visibility 0.5s;
+    transition: opacity ease-out 0.5s, visibility ease-out 0.5s;
 }
 
 #menu.hidden {
@@ -243,4 +244,68 @@ label {
     font-size: calc(var(--main_border_radius) * 1.5);
     color: var(--black);
     margin: 0;
+}
+
+#waiting {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    transition: opacity ease-out 0.5s, visibility ease-out 0.5s;
+    opacity: 1;
+    visibility: visible;
+    user-select: none;
+}
+
+#waiting.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#waiting > p {
+    font-family: Inter, sans-serif;
+    font-weight: 900;
+    font-size: calc(var(--main_border_radius) * 2.4);
+    color: #ffffff;
+}
+
+#waiting > p > span:nth-child(2) {
+    opacity: 0;
+    animation: firstDotFadeIn 3s infinite alternate;
+}
+
+#waiting > p > span:nth-child(3) {
+    opacity: 0;
+    animation: secondDotFadeIn 3s infinite alternate;
+}
+
+#waiting > p > span:nth-child(4) {
+    opacity: 0;
+    animation: thirdDotFadeIn 3s infinite alternate;
+}
+
+#waiting.hidden > p > span {
+    animation: none;
+}
+
+@keyframes firstDotFadeIn {
+    0% { opacity: 0 }
+    12.5% { opacity: 0 }
+    37.5% { opacity: 1 }
+    100% { opacity: 1 }
+}
+
+@keyframes secondDotFadeIn {
+    0% { opacity: 0 }
+    37.5% { opacity: 0 }
+    62.5% { opacity: 1 }
+    100% { opacity: 1 }
+}
+
+@keyframes thirdDotFadeIn {
+    0% { opacity: 0 }
+    62.5% { opacity: 0 }
+    87.5% { opacity: 1 }
+    100% { opacity: 1 }
 }

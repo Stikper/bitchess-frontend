@@ -33,7 +33,7 @@
         </div>
     </div>
 </div>
-<div id="menu" class="">
+<div id="menu" class="hidden">
     <h1>Шахматы:<br/>королевская битва</h1>
     <form name="play_by_room_id" onsubmit="playByRoomId(event)">
         <label for="room_id"></label><input id="room_id" name="room_id" type="text" placeholder="ID комнаты" pattern="[0-9]{1,10}" required>
@@ -41,6 +41,9 @@
     </form>
     <p id="or">или</p>
     <button id="random_room_button">Случайная комната</button>
+</div>
+<div id="waiting" class="">
+    <p>Ожидание второго<br>игрока<span>.</span><span>.</span><span>.</span></p>
 </div>
 </body>
 </html>

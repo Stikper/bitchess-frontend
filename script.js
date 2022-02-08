@@ -43,7 +43,7 @@ function createBoard() {
 function playByRoomId(event) {
     event.preventDefault();
     let room_id = document.getElementById("room_id").value;
-    let request = "room_id=" + room_id;
+    let request = "room_id=" + room_id + "&query=connect";
     let xhr = new XMLHttpRequest();
     xhr.open("GET","/python/join?" + request, true);
     xhr.timeout = 10000;
@@ -52,6 +52,23 @@ function playByRoomId(event) {
         if(xhr.response === "created") {
             waiting_message.classList = "";
             menu.classList = "hidden";
+            let waiting = setInterval(function () {
+                console.log("huy");
+                let request = "room_id=" + room_id + "&query=status";
+                let xhr = new XMLHttpRequest();
+                xhr.open("GET","/python/join?" + request, true);
+                xhr.timeout = 10000;
+                xhr.send(null);
+                xhr.onload = function() {
+                    if(xhr.response === "2") {
+                        clearInterval(waiting);
+                        blur_area.classList = "";
+                        waiting_message.classList = "hidden";
+                    } else {
+                        console.log(xhr.response)
+                    }
+                }
+            },1000);
         } else if(xhr.response === "started") {
             blur_area.classList = "";
             menu.classList = "hidden";

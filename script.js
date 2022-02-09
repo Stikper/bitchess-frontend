@@ -53,7 +53,6 @@ function playByRoomId(event) {
             waiting_message.classList = "";
             menu.classList = "hidden";
             let waiting = setInterval(function () {
-                console.log("huy");
                 let request = "room_id=" + room_id + "&query=status";
                 let xhr = new XMLHttpRequest();
                 xhr.open("GET","/python/join?" + request, true);

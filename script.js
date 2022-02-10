@@ -2,6 +2,8 @@ let blur_area = null;
 let board = null;
 let menu = null;
 let waiting_message = null;
+let game_interval_id = null;
+
 
 function preSetup(){
     window.addEventListener('resize', function (){styleCheck()});
@@ -63,6 +65,7 @@ function playByRoomId(event) {
                         clearInterval(waiting);
                         blur_area.classList = "";
                         waiting_message.classList = "hidden";
+                        game_interval_id = setInterval(function () {gameHandler(room_id)}, 250);
                     } else {
                         console.log(xhr.response)
                     }
@@ -72,5 +75,18 @@ function playByRoomId(event) {
             blur_area.classList = "";
             menu.classList = "hidden";
         } else {console.log(xhr.response);}
+    }
+}
+
+function gameHandler (room_id) {
+    let received_data = null;
+    let request = "room_id=" + room_id + "&query=none&moves=none"
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET","/python/getGameData?" + request, true);
+    xhr.responseType = "json";
+    xhr.timeout = 1000;
+    xhr.send(null);
+    xhr.onload = function() {
+        received_data = xhr.response;
     }
 }

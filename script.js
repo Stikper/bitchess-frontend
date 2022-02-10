@@ -2,7 +2,13 @@ let blur_area = null;
 let board = null;
 let menu = null;
 let waiting_message = null;
+let zone_counter = null;
+let chest_counter = null;
+let deathmatch_counter = null;
+let player_clock = null;
+let opponent_clock = null;
 let game_interval_id = null;
+let received_data = null;
 
 
 function preSetup(){
@@ -11,6 +17,11 @@ function preSetup(){
     board = document.getElementById("board");
     menu = document.getElementById("menu");
     waiting_message = document.getElementById("waiting");
+    zone_counter = document.getElementById("moves_to_zone_change");
+    chest_counter = document.getElementById("moves_to_chest");
+    deathmatch_counter = document.getElementById("moves_to_deathmatch");
+    player_clock = document.getElementById("player_time");
+    opponent_clock = document.getElementById("opponent_time");
     styleCheck();
     createBoard();
 }
@@ -74,12 +85,14 @@ function playByRoomId(event) {
         } else if(xhr.response === "started") {
             blur_area.classList = "";
             menu.classList = "hidden";
+            game_interval_id = setInterval(function () {gameHandler(room_id)}, 250);
         } else {console.log(xhr.response);}
     }
 }
 
+received_data = {board:[],current_move:"white",deathmatch:0,next_chest:0,next_zone:0,time:{black:600,white:600}} //default data
+
 function gameHandler (room_id) {
-    let received_data = null;
     let request = "room_id=" + room_id + "&query=none&moves=none"
     let xhr = new XMLHttpRequest();
     xhr.open("GET","/python/getGameData?" + request, true);
@@ -88,5 +101,22 @@ function gameHandler (room_id) {
     xhr.send(null);
     xhr.onload = function() {
         received_data = xhr.response;
+    }
+    zone_counter.innerHTML = received_data.next_zone + " " + russianLanguageProblem(received_data.next_zone);
+    chest_counter.innerHTML = received_data.next_chest + " " + russianLanguageProblem(received_data.next_chest);
+    deathmatch_counter.innerHTML = received_data.deathmatch + " " + russianLanguageProblem(received_data.deathmatch);
+    opponent_clock.innerHTML = Math.floor(received_data.time.black / 60) + ":" + Math.ceil(received_data.time.black) % 60;
+    player_clock.innerHTML = Math.floor(received_data.time.white / 60) + ":" + Math.ceil(received_data.time.white) % 60;
+}
+
+function russianLanguageProblem(quantity){
+    if(quantity >=10 && quantity <= 20){
+        return "ходов";
+    } else if(quantity % 10 === 1){
+        return "xoд";
+    } else if (quantity % 10 >= 2 && quantity % 10 <= 4){
+        return "хода";
+    } else {
+        return "ходов";
     }
 }

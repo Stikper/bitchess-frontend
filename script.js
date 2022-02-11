@@ -9,6 +9,7 @@ let player_clock = null;
 let opponent_clock = null;
 let game_interval_id = null;
 let received_data = null;
+received_data = {board:[],current_move:"white",deathmatch:0,next_chest:0,next_zone:0,time:{black:600,white:600}} //default data
 
 
 function preSetup(){
@@ -90,7 +91,43 @@ function playByRoomId(event) {
     }
 }
 
-received_data = {board:[],current_move:"white",deathmatch:0,next_chest:0,next_zone:0,time:{black:600,white:600}} //default data
+function playOnRandomRoom() {
+    let room_id = "random";
+    let request = "room_id=" + room_id + "&query=connect";
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET","/python/join?" + request, true);
+    xhr.timeout = 10000;
+    xhr.send(null);
+    xhr.onload = function() {
+        if(xhr.response.split(" ")[1] === "created") {
+            room_id = xhr.response.split(" ")[0];
+            waiting_message.classList = "";
+            menu.classList = "hidden";
+            let waiting = setInterval(function () {
+                let request = "room_id=" + room_id + "&query=status";
+                let xhr = new XMLHttpRequest();
+                xhr.open("GET","/python/join?" + request, true);
+                xhr.timeout = 10000;
+                xhr.send(null);
+                xhr.onload = function() {
+                    if(xhr.response === "2") {
+                        clearInterval(waiting);
+                        blur_area.classList = "";
+                        waiting_message.classList = "hidden";
+                        game_interval_id = setInterval(function () {gameHandler(room_id)}, 250);
+                    } else {
+                        console.log(xhr.response)
+                    }
+                }
+            },1000);
+        } else if(xhr.response.split(" ")[1] === "started") {
+            room_id = xhr.response.split(" ")[0];
+            blur_area.classList = "";
+            menu.classList = "hidden";
+            game_interval_id = setInterval(function () {gameHandler(room_id)}, 250);
+        } else {console.log(xhr.response);}
+    }
+}
 
 function gameHandler (room_id) {
     let request = "room_id=" + room_id + "&query=none&moves=none"

@@ -10,6 +10,7 @@ let opponent_clock = null;
 let game_interval_id = null;
 let received_data = null;
 received_data = {board:[],current_move:"white",deathmatch:0,next_chest:0,next_zone:0,time:{black:600,white:600}} //default data
+let command = "none";
 
 
 function preSetup(){
@@ -130,7 +131,10 @@ function playOnRandomRoom() {
 }
 
 function gameHandler (room_id) {
-    let request = "room_id=" + room_id + "&query=none&moves=none"
+    let request = "room_id=" + room_id + "&query=none&moves=none&command=" + command;
+    if(command !== "none") {
+        command = "none";
+    }
     let xhr = new XMLHttpRequest();
     xhr.open("GET","/python/getGameData?" + request, true);
     xhr.responseType = "json";
@@ -156,4 +160,10 @@ function russianLanguageProblem(quantity){
     } else {
         return "ходов";
     }
+}
+
+function sendCommand(event) {
+    event.preventDefault();
+    command = document.getElementById("command_line").value
+    document.getElementById("command_line").value = null;
 }

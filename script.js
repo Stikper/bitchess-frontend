@@ -131,8 +131,9 @@ function playOnRandomRoom() {
 }
 
 function gameHandler (room_id) {
-    let request = "room_id=" + room_id + "&query=none&moves=none&command=" + command;
+    let request = "room_id=" + room_id;
     if(command !== "none") {
+        request = request + "&command=" + command;
         command = "none";
     }
     let xhr = new XMLHttpRequest();

@@ -13,10 +13,35 @@
     <div id="game_area">
         <div id="board"></div>
         <div id="game_menu">
-            <form name="console" onsubmit="sendCommand(event)">
-                <label for="command_line"></label><input id="command_line" placeholder="Введите команду..." type="text" autocomplete="off" required>
-                <input type="submit" id="send_command_button" value=">">
-            </form>
+            <div id="tab_switcher"></div>
+            <div id="main_tab">
+                <div id="moves_history">
+                    <p class="main_tab_header">История ходов</p>
+                    <p id="moves_history_text">1. e4 e5 2. Nf3 Nf6</p>
+                </div>
+                <div id="actions">
+                    <p class="main_tab_header">Действия</p>
+                </div>
+                <div id="inventory">
+                    <p class="main_tab_header">Инвентарь</p>
+                    <div class="inventory_item" id="inventory_item_0"></div>
+                    <div class="inventory_item" id="inventory_item_1"></div>
+                    <div class="inventory_item" id="inventory_item_2"></div>
+                    <div class="inventory_item" id="inventory_item_3"></div>
+                    <div class="inventory_item" id="inventory_item_4"></div>
+                    <div class="inventory_item" id="inventory_item_5"></div>
+                    <div class="inventory_item" id="inventory_item_6"></div>
+                    <div class="inventory_item" id="inventory_item_7"></div>
+                    <div class="inventory_item" id="inventory_item_8"></div>
+                    <div class="inventory_item" id="inventory_item_9"></div>
+                    <div class="inventory_item" id="inventory_item_10"></div>
+                    <div class="inventory_item" id="inventory_item_11"></div>
+                </div>
+                <form name="console" onsubmit="sendCommand(event)">
+                    <label for="command_line"></label><input id="command_line" placeholder="Введите команду..." type="text" autocomplete="off" required>
+                    <input type="submit" id="send_command_button" value=">">
+                </form>
+            </div>
         </div>
         <div id="opponent_clock" class="clock info_block">
             <p id="opponent_time" class="time">10:00</p>

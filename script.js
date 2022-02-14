@@ -32,11 +32,9 @@ function styleCheck() {
     let clientWidth =  document.documentElement.clientWidth;
     let clientHeight =  document.documentElement.clientHeight;
     if (clientWidth / clientHeight >= 1.94) {
-        document.body.style.setProperty('--main_border_radius', '3.08vh');
-        document.body.style.setProperty('--clock_margin', '5.52vh');
+        document.body.style.setProperty('--main_border_radius', '3.0303vh');
     } else {
-        document.body.style.setProperty('--main_border_radius', '1.59vw');
-        document.body.style.setProperty('--clock_margin', '2.85vw');
+        document.body.style.setProperty('--main_border_radius', '1.562vw');
     }
 }
 

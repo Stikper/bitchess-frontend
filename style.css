@@ -49,7 +49,6 @@ body {
     height: auto;
     max-height: calc(100vh);
     padding: var(--main_border_radius);
-    background-color: green;
 }
 
 #board {

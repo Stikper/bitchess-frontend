@@ -6,10 +6,9 @@
     <link rel="icon" href="/data/logos/icon_logo.svg">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="/data/fonts/Inter/inter.css">
-    <script src="script.js"></script>
 </head>
 <body onload="preSetup()">
-<div id="blur_area" class="">
+<div id="blur_area" class="blurred">
     <div id="game_area">
         <div id="board"></div>
         <div id="info_blocks">
@@ -77,7 +76,7 @@
         </div>
     </div>
 </div>
-<div id="menu" class="hidden">
+<div id="menu" class="">
     <h1>Шахматы:<br/>королевская битва</h1>
     <form name="play_by_room_id" onsubmit="playByRoomId(event)">
         <label for="room_id"></label><input id="room_id" name="room_id" type="text" placeholder="ID комнаты" pattern="[0-9]{1,10}" required>
@@ -89,5 +88,6 @@
 <div id="waiting" class="hidden">
     <p>Ожидание второго<br>игрока<span>.</span><span>.</span><span>.</span></p>
 </div>
+<script src="script.js"></script>
 </body>
 </html>

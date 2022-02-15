@@ -1,12 +1,12 @@
-let blur_area = null;
-let board = null;
-let menu = null;
-let waiting_message = null;
-let zone_counter = null;
-let chest_counter = null;
-let deathmatch_counter = null;
-let player_clock = null;
-let opponent_clock = null;
+const blur_area = document.getElementById('blur_area');
+const board = document.getElementById("board");
+const menu = document.getElementById("menu");
+const waiting_message = document.getElementById("waiting");
+const zone_counter = document.getElementById("moves_to_zone_change");
+const chest_counter = document.getElementById("moves_to_chest");
+const deathmatch_counter = document.getElementById("moves_to_deathmatch");
+const player_clock = document.getElementById("player_time");
+const opponent_clock = document.getElementById("opponent_time");
 let game_interval_id = null;
 let received_data = null;
 received_data = {board:[],current_move:"white",deathmatch:0,next_chest:0,next_zone:0,time:{black:600,white:600}} //default data
@@ -15,15 +15,6 @@ let command = "none";
 
 function preSetup(){
     window.addEventListener('resize', function (){styleCheck()});
-    blur_area = document.getElementById('blur_area');
-    board = document.getElementById("board");
-    menu = document.getElementById("menu");
-    waiting_message = document.getElementById("waiting");
-    zone_counter = document.getElementById("moves_to_zone_change");
-    chest_counter = document.getElementById("moves_to_chest");
-    deathmatch_counter = document.getElementById("moves_to_deathmatch");
-    player_clock = document.getElementById("player_time");
-    opponent_clock = document.getElementById("opponent_time");
     styleCheck();
     createBoard();
 }
@@ -63,8 +54,8 @@ function playByRoomId(event) {
     xhr.send(null);
     xhr.onload = function() {
         if(xhr.response === "created") {
-            waiting_message.classList = "";
-            menu.classList = "hidden";
+            waiting_message.classList.remove("hidden");
+            menu.classList.add("hidden");
             let waiting = setInterval(function () {
                 let request = "room_id=" + room_id + "&query=status";
                 let xhr = new XMLHttpRequest();
@@ -74,8 +65,8 @@ function playByRoomId(event) {
                 xhr.onload = function() {
                     if(xhr.response === "2") {
                         clearInterval(waiting);
-                        blur_area.classList = "";
-                        waiting_message.classList = "hidden";
+                        blur_area.classList.remove("blurred");
+                        waiting_message.classList.add("hidden");
                         game_interval_id = setInterval(function () {gameHandler(room_id)}, 250);
                     } else {
                         console.log(xhr.response)
@@ -83,8 +74,8 @@ function playByRoomId(event) {
                 }
             },1000);
         } else if(xhr.response === "started") {
-            blur_area.classList = "";
-            menu.classList = "hidden";
+            blur_area.classList.remove("blurred");
+            menu.classList.add("hidden");
             game_interval_id = setInterval(function () {gameHandler(room_id)}, 250);
         } else {console.log(xhr.response);}
     }
@@ -100,8 +91,8 @@ function playOnRandomRoom() {
     xhr.onload = function() {
         if(xhr.response.split(" ")[1] === "created") {
             room_id = xhr.response.split(" ")[0];
-            waiting_message.classList = "";
-            menu.classList = "hidden";
+            waiting_message.classList.remove("hidden");
+            menu.classList.add("hidden");
             let waiting = setInterval(function () {
                 let request = "room_id=" + room_id + "&query=status";
                 let xhr = new XMLHttpRequest();
@@ -111,8 +102,8 @@ function playOnRandomRoom() {
                 xhr.onload = function() {
                     if(xhr.response === "2") {
                         clearInterval(waiting);
-                        blur_area.classList = "";
-                        waiting_message.classList = "hidden";
+                        blur_area.classList.remove("blurred");
+                        waiting_message.classList.add("hidden");
                         game_interval_id = setInterval(function () {gameHandler(room_id)}, 250);
                     } else {
                         console.log(xhr.response)
@@ -121,8 +112,8 @@ function playOnRandomRoom() {
             },1000);
         } else if(xhr.response.split(" ")[1] === "started") {
             room_id = xhr.response.split(" ")[0];
-            blur_area.classList = "";
-            menu.classList = "hidden";
+            blur_area.classList.remove("blurred");
+            menu.classList.add("hidden");
             game_interval_id = setInterval(function () {gameHandler(room_id)}, 250);
         } else {console.log(xhr.response);}
     }

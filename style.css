@@ -50,7 +50,7 @@ body {
     width: auto;
     height: auto;
     max-height: calc(100vh);
-    padding: var(--main_border_radius);
+    padding: var(--main_border_radius) 0 var(--main_border_radius) var(--main_border_radius);
 }
 
 #board {
@@ -74,6 +74,14 @@ body {
 
 .white_square {
     background-color: var(--white_square);
+}
+
+#info_blocks {
+    float: left;
+    width: calc(var(--main_border_radius) * 9.552);
+    height: calc(var(--main_border_radius) * 31);
+    margin: 0;
+    padding: 0;
 }
 
 .info_block {
@@ -111,7 +119,8 @@ body {
 
 #game_menu {
     box-sizing: border-box;
-    float: right;
+    float: left;
+    margin-left: var(--main_border_radius);
     padding: calc(var(--main_border_radius) * 2/3);
     aspect-ratio: 0.628;
     height: calc(var(--main_border_radius) * 31);

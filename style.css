@@ -171,6 +171,33 @@ body {
     padding: calc(var(--main_border_radius) * 2/3);
 }
 
+.action_button {
+    display: block;
+    border: none;
+    background-color: rgba(0,0,0,0);
+    outline: none;
+    margin: 0 auto var(--main_border_radius) auto;
+    height: var(--main_border_radius);
+    width: calc(var(--main_border_radius) * 6);
+    padding: 0;
+}
+
+.action_button > img {
+    height: var(--main_border_radius);
+    width: var(--main_border_radius);
+    margin: 0;
+    display: inline-block;
+}
+
+.action_button > span {
+    height: var(--main_border_radius);
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    font-size: calc(var(--main_border_radius) * 0.8);
+    color: var(--dusk_gray);
+    display: inline-block;
+}
+
 #inventory {
     float: left;
     box-sizing: border-box;

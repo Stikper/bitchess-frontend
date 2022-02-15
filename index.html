@@ -9,7 +9,7 @@
     <script src="script.js"></script>
 </head>
 <body onload="preSetup()">
-<div id="blur_area" class="blurred">
+<div id="blur_area" class="">
     <div id="game_area">
         <div id="board"></div>
         <div id="game_menu">
@@ -21,6 +21,18 @@
                 </div>
                 <div id="actions">
                     <p class="main_tab_header">Действия</p>
+                    <button class="action_button" id="draw_button">
+                        <img src="/data/logos/icon_logo.svg" alt="">
+                        <span>Ничья</span>
+                    </button>
+                    <button class="action_button" id="resign_button">
+                        <img src="/data/logos/icon_logo.svg" alt="">
+                        <span>Сдаться</span>
+                    </button>
+                    <button class="action_button" id="chat_button">
+                        <img src="/data/logos/icon_logo.svg" alt="">
+                        <span>Чат</span>
+                    </button>
                 </div>
                 <div id="inventory">
                     <p class="main_tab_header">Инвентарь</p>
@@ -63,7 +75,7 @@
         </div>
     </div>
 </div>
-<div id="menu" class="">
+<div id="menu" class="hidden">
     <h1>Шахматы:<br/>королевская битва</h1>
     <form name="play_by_room_id" onsubmit="playByRoomId(event)">
         <label for="room_id"></label><input id="room_id" name="room_id" type="text" placeholder="ID комнаты" pattern="[0-9]{1,10}" required>

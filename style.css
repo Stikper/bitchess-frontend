@@ -271,6 +271,7 @@ body {
     font-size: calc(var(--main_border_radius) * 1.2);
     font-family: Inter, sans-serif;
     font-weight: 900;
+    outline: none;
 }
 
 #menu {

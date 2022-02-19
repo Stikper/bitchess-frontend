@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <rect width="1024" height="1024" id="artboard_1" />
+    <clipPath id="clip_1">
+      <use xlink:href="#artboard_1" clip-rule="evenodd" />
+    </clipPath>
+  </defs>
+  <g id="Artboard" clip-path="url(#clip_1)">
+    <use xlink:href="#artboard_1" stroke="none" fill="#FFFFFF" fill-opacity="0" />
+    <path d="M855 779.5C855 700.799 791.201 637 712.5 637C633.799 637 570 700.799 570 779.5C570 858.201 633.799 922 712.5 922C791.201 922 855 858.201 855 779.5Z" id="Ellipse" fill="#333333" fill-rule="evenodd" stroke="none" />
+    <path d="M855 246.5C855 167.799 791.201 104 712.5 104C633.799 104 570 167.799 570 246.5C570 325.201 633.799 389 712.5 389C791.201 389 855 325.201 855 246.5Z" id="Ellipse-Copy-2" fill="#333333" fill-rule="evenodd" stroke="none" />
+    <path d="M408 512.5C408 433.799 344.201 370 265.5 370C186.799 370 123 433.799 123 512.5C123 591.201 186.799 655 265.5 655C344.201 655 408 591.201 408 512.5Z" id="Ellipse-Copy" fill="#333333" fill-rule="evenodd" stroke="none" />
+    <path d="M712 779L265 512" id="Line" fill="none" fill-rule="evenodd" stroke="#333333" stroke-width="102" stroke-linecap="square" />
+    <path d="M712 246L265 512" id="Line-Copy" fill="none" fill-rule="evenodd" stroke="#333333" stroke-width="102" stroke-linecap="square" />
+  </g>
+</svg>

@@ -17,6 +17,7 @@ function preSetup(){
     window.addEventListener('resize', function (){styleCheck()});
     styleCheck();
     createBoard();
+    document.getElementById("main_tab_button").checked=true;
 }
 
 function styleCheck() {
@@ -156,4 +157,14 @@ function sendCommand(event) {
     event.preventDefault();
     command = document.getElementById("command_line").value
     document.getElementById("command_line").value = null;
+}
+
+function setActiveTab(tab) {
+    let tabs = document.getElementsByClassName("game_menu_tab");
+    for(let i = 0; i < tabs.length; i++) {
+        if (tabs[i].classList.contains("active")) {
+            tabs[i].classList.remove("active");
+        }
+    }
+    document.getElementById(tab + "_tab").classList.add("active");
 }

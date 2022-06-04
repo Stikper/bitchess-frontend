@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/data/fonts/Inter/inter.css">
 </head>
 <body onload="preSetup()">
-<div id="blur_area" class="blurred">
+<div id="blur_area" class="">
     <div id="game_area">
         <div id="board"></div>
         <div id="info_blocks">
@@ -32,11 +32,23 @@
         </div>
         </div>
         <div id="game_menu">
-            <div id="tab_switcher"></div>
-            <div id="main_tab">
+            <div id="tab_switcher">
+                <input type="radio" name="tab_switcher" id="main_tab_button" value="" checked="checked">
+                <label for="main_tab_button" id="main_tab_button_label" onclick="setActiveTab('main')">Основное</label>
+                <input type="radio" name="tab_switcher" id="shop_tab_button" value="">
+                <label for="shop_tab_button" id="shop_tab_button_label" onclick="setActiveTab('shop')">Магазин</label>
+                <input type="radio" name="tab_switcher" id="settings_tab_button" value="">
+                <label for="settings_tab_button" id="settings_tab_button_label" onclick="setActiveTab('settings')">Настройки</label>
+            </div>
+            <div id="main_tab" class="game_menu_tab active">
                 <div id="moves_history">
                     <p class="main_tab_header">История ходов</p>
                     <p id="moves_history_text">1. e4 e5 2. Nf3 Nf6</p>
+                    <img class="moves_history_small_button" src="data/icons/share_icon.svg" alt="">
+                    <img class="moves_history_small_button" src="data/icons/share_icon.svg" alt="">
+                    <button class="moves_history_control_button"><span>></span></button>
+                    <button class="moves_history_control_button"><span>II</span></button>
+                    <button class="moves_history_control_button"><span><</span></button>
                 </div>
                 <div id="actions">
                     <p class="main_tab_header">Действия</p>
@@ -73,10 +85,16 @@
                     <input type="submit" id="send_command_button" value=">">
                 </form>
             </div>
+            <div id="shop_tab" class="game_menu_tab">
+                <p>Day</p>
+            </div>
+            <div id="settings_tab" class="game_menu_tab">
+                <p>Deep</p>
+            </div>
         </div>
     </div>
 </div>
-<div id="menu" class="">
+<div id="menu" class="hidden">
     <h1>Шахматы:<br/>королевская битва</h1>
     <form name="play_by_room_id" onsubmit="playByRoomId(event)">
         <label for="room_id"></label><input id="room_id" name="room_id" type="text" placeholder="ID комнаты" pattern="[0-9]{1,10}" required>
